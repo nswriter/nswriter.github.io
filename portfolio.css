@@ -71,7 +71,7 @@ nav ul li {
 }
 
 nav a.activeTab{
-    background-color: rgb(64, 69, 99);
+    background-color: #404563;
 }
 nav a {
     text-decoration: none;
@@ -202,7 +202,7 @@ nav p {
 }
 
 .pageNav a.activeTab{
-    background-color: rgb(110, 118, 170);
+    background-color: #2F3150;
 }
 .pageNav a {
     background-color: var(--callout);
