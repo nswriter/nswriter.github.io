@@ -223,7 +223,7 @@ nav p {
     background-color: var(--banner);
     padding:.5rem;
 }
-.read a{
+.read{
     text-decoration: none;
     color:white;
 }
@@ -232,10 +232,11 @@ nav p {
     padding:.5rem;
     margin-top:3rem;  
 }
-.topper a{
+.topper{
     text-decoration: none;
     color:white;
 }
+
 .footer {
     grid-area: footer;
     /* min-height:50px; */
