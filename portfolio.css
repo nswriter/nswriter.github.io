@@ -1,10 +1,10 @@
 :root {
     --buttonBack: rgb(0, 110, 114);
     --buttonText: rgb(255, 255, 255);
-    --banner: rgb(55, 59, 82);
-    --callout: rgb(61, 71, 124);
+    --banner: #373b52;
+    --callout: #3d477c;
     --pageColor: rgb(238, 237, 205);
-    --bg1:rgb(237, 237, 237);
+    --bg1: rgb(237, 237, 237);
 }
 
 
@@ -13,43 +13,155 @@
 
 
 
-.container {
+/* .container {
+    display: grid;
+    grid-template-columns: 10% auto 1fr 1fr 10%;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header header header header"
+        "left nav main main right"
+        "footer footer footer footer footer"
+
+    ;
+    gap: 10px;
+    padding: 10px;
+    height: 100vh;
+
+} */
+.container2 {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
     grid-template-areas:
         "header"
         "main"
         "footer"
 
     ;
+    gap: 10px;
+    padding: 10px;
     height: 100vh;
 
 }
-a{
-    font-size: large;
+@media only screen and (max-width: 600px){
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "nav" 
+            "main"
+            "footer"
+    
+        ;
+        gap: 10px;
+        padding: 10px;
+        height: 100vh;
+    
+    }
+    .pageNav{
+        width:1fr;
+    }
+    .pageNav li{
+        display:block;
+    }
+    .imgGrid{
+        
+        margin: auto;
+        display:flex;
+        justify-content: center;
+        align-self: center;
+        flex-wrap: wrap;
+        outline:3px solid var(--callout);
+        width:75%;
+    }
+    .content{
+        width:90%;
+    }
+    .contentFull{
+        width:90%;
+    }
+    #aboutImg{
+        display:block;
+    }
 }
-/* .container2{
-    display:grid;
-    grid-template-columns: 1fr 20%;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
-        "header header"
-        "main aside"
-        "footer footer"
-    ;
-    height:100vh;
-} */
+
+@media only screen and (min-width: 600px){
+    .container {
+        display: grid;
+        grid-template-columns: auto 1fr 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header header header"
+            "nav main main"
+            "footer footer footer"
+    
+        ;
+        gap: 10px;
+        padding: 10px;
+        height: 100vh;
+    
+    }
+    #aboutImg{
+        padding:1rem;
+        height:fit-content;
+        /* border:3px solid var(--callout); */
+    }
+    .imgGrid{
+        
+        margin: auto;
+        display:flex;
+        justify-content: center;
+        align-self: center;
+        flex-wrap: wrap;
+        outline:3px solid var(--callout);
+        width:75%;
+    }
+    .content{
+        width:90%;
+    }
+    .contentFull{
+        width:90%;
+    }
+    #aboutImg{
+       display:block;
+        
+    }
+   
+    
+}
+@media only screen and (min-width: 900px){
+    .container {
+        display: grid;
+        grid-template-columns: 25% 1fr 1fr 10%;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header header header header "
+            "nav main main right"
+            "footer footer footer footer "
+    
+        ;
+        gap: 10px;
+        padding: 10px;
+        height: 100vh;
+    
+    }
+   
+
+}
 
 body {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     background-color: rgb(255, 255, 255);
-    margin:0;
+    margin: 0;
 }
-
+#aboutImg{
+    float:right;
+    margin:10px;
+}
 .header {
     grid-area: header;
-    /* min-height:75px; */
     background-color: var(--banner);
     color: white;
     padding-left: 1rem;
@@ -58,35 +170,51 @@ body {
     padding-bottom: .5rem;
 }
 
-nav ul {
-    display: block;
-    float: right;
-    margin-right: 1rem;
-}
 
-nav ul li {
-    display: inline-block;
-    line-height: 1rem;
-    margin: 0 5px;
-}
-
-nav a.activeTab{
-    background-color: #404563;
-}
 nav a {
     text-decoration: none;
     color: white;
     padding: 1rem;
 
 }
-nav a:hover{
+.header ul {
+    float: right;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.header p{
+    float: left;
+    display: block;
+    color: white;
+    font-size:larger;
+}
+
+.header li {
+    float: left;
+    /* padding: 5px; */
+    /* margin-bottom: 3px; */
+    background-color: var(--banner);
+    color: #ffffff;
+    margin:5px;
+}
+.activeTab {
     background-color: var(--callout);
 }
 
-nav p {
-    display: block;
-    float: left;
+.header li:hover {
+    background-color: var(--callout);
 }
+
+.header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+
+}
+
 .splash{
     background-image: url(./images/floatingIsland_new.png);
     image-rendering: optimizeSpeed;
@@ -119,102 +247,100 @@ nav p {
 
 .content {
     grid-area: main;
+    width:80%;
+    margin:1rem;
     margin: auto;
     font-family:Arial, Helvetica, sans-serif;
     font-size: 1.1em;
     margin-top:5%;
-    width: 45%;
     /* background-color:rgb(255, 255, 255);
     padding:1rem; */
     margin-bottom:1rem;
 }
-@media only screen and (max-width:500px) {
+
+.contentFull{
+    grid-area: main;
     
-    .content{
-        width:80%;
-    }
-    
-    /* .pageNav{
-        width:90%;
-        display:flex;
-        justify-content: center;
-        align-self: center;
-    } */
+    width:50%;
+    margin:1rem;
+    margin: auto;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    margin-top:5%;
+    /* background-color:rgb(255, 255, 255);
+    padding:1rem; */
+    margin-bottom:1rem;
 }
-@media only screen and (min-width:500px){
-    .content h1{
-        margin: auto;
-        display:flex;
-        justify-content: center;
-        align-self: center;
-        width:90%;
-
-    }
-    .floatText{
-        display:flex;   
-    }
-    #aboutImg{
-        padding:1rem;
-        height:fit-content;
-        /* border:3px solid var(--callout); */
-    }
-    .imgGrid{
-        
-        margin: auto;
-        display:flex;
-        justify-content: center;
-        align-self: center;
-        flex-wrap: wrap;
-        outline:3px solid var(--callout);
-        width:75%;
-    }
-    
-    /* .cardHolder{
-        margin: auto;
-        display:flex;
-        justify-content: center;
-        align-self: center;
-        flex-wrap: wrap;
-    }
-    .card {
-        width:40%;
-    } */
-}
-
-
 .imgGrid img{
     width:40%;
     outline:1px solid black;
     margin:1rem;
     padding:3px;
 }
-.pageNav{
-    margin: auto;
-    margin-top:1%;
-
-    width: 55%;
-    color:white;
-    min-height: 50px;
-    display:flex;
-    justify-content: center;
-    align-self: center;
+.sideImg{
+    grid-area:nav;
+    margin:auto;
+    width:50%;
     
 }
 
-.pageNav a.activeTab{
-    background-color: #2F3150;
+
+
+
+
+
+.pageNav{
+    grid-area:nav;
+    /* margin-top:25%; */
+    background-color: var(--bg1);
+    /* min-width: fit-content;
+    max-width: 25%; */
+    padding:1rem;
+    text-align: center;
+    
+}
+.pageNav p{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 300;
 }
 .pageNav a {
-    background-color: var(--callout);
-    margin:.5rem;
     text-decoration: none;
     color: white;
     padding: 1rem;
 
 }
-.pageNav a:hover{
-    background-color: var(--banner);
+.pageNav ul {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* height:100%; */
+
 }
+
+.pageNav li {
+    /* padding: 5px; */
+    /* margin-bottom: 3px; */
+    background-color: var(--banner);
+    color: #ffffff;
+    margin:5px;
+}
+
+.pageNav li:hover {
+    background-color: var(--callout);
+}
+
+.pageNav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+
+}
+
 .card{
     background-color: rgb(228, 228, 228);
     padding:1rem;
@@ -242,9 +368,10 @@ nav p {
     /* min-height:50px; */
     background-color: var(--banner);
     margin: auto;
-        display:flex;
-        justify-content: center;
-        align-self: center;
+    /* display:flex;
+    justify-content: center;  
+    align-self: center; */
+    text-align: center;
     width:100%;
     
 }
